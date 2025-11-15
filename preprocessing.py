@@ -177,11 +177,16 @@ plt.ylabel("Density")
 plt.legend()
 plt.tight_layout()
 
-plt.show()
-
+#One-hot encoding 
+df = pd.get_dummies(df, columns=cat_cols, drop_first=True)
+df = df.astype(int)
 # Normalize numerical features
 scaler = MinMaxScaler()
 df[num_cols] = scaler.fit_transform(df[num_cols])
+print("\n=== Final Preprocessed Data Preview ===")
+print(df.head())
+
+plt.show()
 
 
  
