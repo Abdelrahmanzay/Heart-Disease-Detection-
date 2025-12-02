@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 
 def load_and_preprocess(
     csv_path="heart.csv",
-    output_csv="data/heart_preprocessed.csv",
+    output_csv="heart_preprocessed.csv",
     test_size=0.2,
     random_state=42
 ):
