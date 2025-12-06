@@ -23,12 +23,12 @@ print(df_original.describe())
 df_vis = df_original.copy()
 
 # ============================================
-# 🚫 WRONG INTERPRETATION (initial assumption)
+#  WRONG INTERPRETATION (initial assumption)
 # ============================================
 
 plt.figure(figsize=(6, 4))
 sns.countplot(data=df_vis, x="target", palette="coolwarm")
-plt.title("Initial Interpretation of Target\n❌ WRONG Meaning")
+plt.title("Initial Interpretation of Target\n WRONG Meaning")
 plt.xlabel("Target Value")
 plt.ylabel("Count")
 plt.xticks([0, 1], ["No Disease (0?)", "Disease (1?)"])
@@ -36,7 +36,7 @@ plt.tight_layout()
 plt.show()
 
 # ============================================
-# ✅ CORRECT INTERPRETATION (fixed)
+#  CORRECT INTERPRETATION (fixed)
 # ============================================
 
 df_vis["disease_label"] = df_vis["target"].map({
@@ -110,10 +110,8 @@ plt.tight_layout()
 plt.show()
 
 # ============================
-# 📌 MODEL TRAINING & EVALUATION
+#  MODEL TRAINING & EVALUATION
 # ============================
-from sklearn.model_selection import GridSearchCV
-
 results = []
 
 #KNN
@@ -215,7 +213,7 @@ plt.show()
 
 
 # ====================================
-# 📌 FEATURE IMPORTANCE (RANDOM FOREST)
+#  FEATURE IMPORTANCE (RANDOM FOREST)
 # ====================================
 
 import numpy as np
@@ -227,7 +225,7 @@ plt.figure(figsize=(10, 5))
 plt.bar(np.array(X_train.columns)[indices][:10],
         feature_importances[indices][:10], color="teal")
 plt.title("Top 10 Important Features")
-plt.ylabel("Feature Importance Score")
+plt.ylabel("Feature Importance Score (Random Forest)")
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
@@ -264,6 +262,7 @@ plt.grid()
 plt.tight_layout()
 plt.show()
 
+# Feature Distributions by Target
 features = ["age", "trestbps", "chol", "thalach"]
 
 for col in features:
@@ -289,7 +288,7 @@ for col in features:
     plt.tight_layout()
     plt.show()
 
-
+# Decision Tree Feature Importance & Depth vs Accuracy
 from sklearn.tree import DecisionTreeClassifier
 dt = DecisionTreeClassifier(random_state=42)
 dt.fit(X_train, y_train)
@@ -304,7 +303,7 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 
-
+# Decision Tree Depth vs Accuracy
 depths = range(1, 21)
 train_scores = []
 test_scores = []
@@ -325,6 +324,7 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 
+# Visualize Decision Tree Structure
 from sklearn.tree import plot_tree
 
 plt.figure(figsize=(20, 12))

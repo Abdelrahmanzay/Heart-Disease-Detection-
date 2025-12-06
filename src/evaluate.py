@@ -20,14 +20,6 @@ def evaluate_model(
     results: list,
     results_dir: str = "results"
 ):
-    """
-    Evaluate a trained model and:
-    - compute metrics
-    - save confusion matrix plot
-    - save ROC curve plot (if possible)
-    - append metrics to results list
-    """
-
     y_pred = model.predict(X_test)
 
     # --- Basic metrics ---

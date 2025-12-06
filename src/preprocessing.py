@@ -14,7 +14,7 @@ def load_and_preprocess(
     random_state=42
 ):
     df = pd.read_csv("heart.csv")
-    print("✅ Dataset loaded successfully!\n")
+    print("Dataset loaded successfully!\n")
 
     num_cols = ["age", "trestbps", "chol", "thalach", "oldpeak"]
     cat_cols = ["sex", "cp", "fbs", "restecg", "exang", "slope", "ca", "thal"]
