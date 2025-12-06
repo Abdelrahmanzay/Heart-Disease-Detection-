@@ -5,7 +5,8 @@ __pycache__/
 
 # C extensions
 *.so
-
+heart_preprocessed.csv
+results/
 # Distribution / packaging
 .Python
 build/
